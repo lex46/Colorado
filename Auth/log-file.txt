@@ -1,0 +1,1 @@
+2015-02-15 00:30:23,269 [11] ERROR Auth.Providers.LoggingProvider [(null)] - Test

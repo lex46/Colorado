@@ -1,0 +1,31 @@
+﻿@using Auth.HtmlHelpers
+@using Microsoft.Web.Mvc
+@model Auth.ViewModel.UserCustomFormViewModel
+@{
+    Layout = "~/Views/shared/Layout.cshtml";
+}
+
+@using (var form = Html.BeginForm())
+{
+    @Html.HiddenFor(x => x.FormId)
+    @Html.HiddenFor(x => x.Name)
+    @Html.HiddenFor(x => x.Template)
+    <div>
+        <div>
+            @MvcHtmlString.Create(HtmlUserCustomForm.Show(Model.Name, Model.Template, Model.UserValues))
+        </div>
+        <div>
+            @Html.SubmitButton("save", "Save")
+        </div>
+    </div>
+}
+
+@*<script>
+    $(".user-form_ label,input").each(function () {
+        debugger;
+        $(this).css("left", parseFloat($(this).css("left")) * 2);
+        $(this).css("top", parseFloat($(this).css("top")) * 2);
+        $(this).css("font-size", parseFloat($(this).css("font-size")) * 2);
+        $(this).css("width", parseFloat($(this).css("width")) * 2);
+    });
+</script>*@

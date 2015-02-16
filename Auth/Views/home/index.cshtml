@@ -1,0 +1,40 @@
+﻿@using Microsoft.Web.Mvc
+@model Auth.ViewModel.UserLoginViewModel
+@{
+    Layout =  "~/Views/Shared/Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <div>
+        What's up, dude!
+
+        @using (Html.BeginForm())
+        {
+            <table>
+                <tr>
+                    <td>login</td>
+                    <td>@Html.TextBoxFor(x => x.Username)</td>
+                </tr>
+                <tr>
+                    <td>pass</td>
+                    <td>@Html.TextBoxFor(x => x.Password)</td>
+                </tr>
+            </table>
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+            @Html.SubmitButton("action:logout", "logout", new { @class = "btn" })
+            }
+            else
+            {
+            @Html.SubmitButton("action:login", "login", new { @class = "btn" })
+            }
+        }
+    </div>
+</body>
+</html>
